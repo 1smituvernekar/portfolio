@@ -1,0 +1,672 @@
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+.work-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px 7%;
+  overflow: hidden;
+  background: #09090d;
+  color: #f5f5f7;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.work-glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.work-glow-one {
+  top: 100px;
+  left: -150px;
+  background: #874dff;
+}
+
+.work-glow-two {
+  top: 600px;
+  right: -150px;
+  background: #00d5c0;
+}
+
+.work-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 45px 45px;
+  pointer-events: none;
+}
+
+.work-header,
+.work-projects,
+.work-outro {
+  position: relative;
+  z-index: 1;
+}
+
+.work-header {
+  max-width: 850px;
+  margin: 0 auto 85px;
+  text-align: center;
+}
+
+.work-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+  color: #00d5c0;
+  font: 12px "DM Mono", monospace;
+  letter-spacing: 3px;
+}
+
+.work-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00d5c0;
+  box-shadow: 0 0 12px #00d5c0;
+}
+
+.work-header h1 {
+  margin: 0 0 25px;
+  font-size: clamp(42px, 7vw, 82px);
+  line-height: 1.05;
+  letter-spacing: -3px;
+}
+
+.work-gradient {
+  background: linear-gradient(100deg, #874dff, #00d5c0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.work-intro {
+  max-width: 650px;
+  margin: auto;
+  color: #a5a5b3;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.work-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  margin-top: 45px;
+}
+
+.work-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat-number {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.stat-label {
+  color: #888895;
+  font: 10px "DM Mono", monospace;
+  letter-spacing: 1px;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: #30303a;
+}
+
+/* Project cards */
+
+.work-projects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 35px;
+  max-width: 1250px;
+  margin: auto;
+}
+
+.work-card {
+  min-width: 0;
+  padding: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 22px;
+  background: rgba(20, 20, 28, 0.88);
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+  animation: workCardAppear 0.7s ease both;
+  animation-delay: calc(var(--card-index, 0) * 0.12s);
+}
+
+.work-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(0, 213, 192, 0.4);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.25);
+}
+
+.project-orange:hover {
+  border-color: rgba(255, 153, 80, 0.5);
+}
+
+.project-purple:hover {
+  border-color: rgba(135, 77, 255, 0.6);
+}
+
+.project-teal:hover {
+  border-color: rgba(0, 213, 192, 0.6);
+}
+
+@keyframes workCardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.work-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.work-project-number {
+  color: #00d5c0;
+  font: 12px "DM Mono", monospace;
+}
+
+.work-category {
+  color: #9393a1;
+  font: 10px "DM Mono", monospace;
+  letter-spacing: 1px;
+  text-align: right;
+}
+
+/* Website poster image */
+
+.work-preview {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 310px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  background: #111118;
+  text-decoration: none;
+}
+
+/* IMPORTANT: show the complete image instead of cropping it */
+
+.work-poster-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  background: #111118;
+  transition: transform 0.45s ease;
+}
+
+.work-preview:hover .work-poster-image {
+  transform: scale(1.025);
+}
+
+.work-poster-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 20px;
+  background: linear-gradient(
+    to top,
+    rgba(9, 9, 13, 0.9),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: #fff;
+  font: 11px "DM Mono", monospace;
+  letter-spacing: 1px;
+}
+
+.work-preview:hover .work-poster-overlay {
+  opacity: 1;
+}
+
+.work-arrow {
+  font-size: 22px;
+}
+
+.work-poster-number {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  background: rgba(9, 9, 13, 0.75);
+  color: #fff;
+  font: 10px "DM Mono", monospace;
+}
+
+/* Project information */
+
+.work-card-content {
+  padding: 25px 3px 5px;
+}
+
+.work-mini-label {
+  color: #00d5c0;
+  font: 10px "DM Mono", monospace;
+  letter-spacing: 1.5px;
+}
+
+.work-card-content h2 {
+  margin: 14px 0 7px;
+  font-size: clamp(23px, 2.5vw, 32px);
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.work-card-content h3 {
+  margin: 0 0 17px;
+  color: #a5a5b3;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.work-description {
+  color: #a5a5b3;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.work-feature-heading,
+.work-tech-heading {
+  margin: 26px 0 14px;
+  color: #e4e4eb;
+  font: 11px "DM Mono", monospace;
+  letter-spacing: 1.5px;
+}
+
+.work-features {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.work-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #b4b4c0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.feature-check {
+  flex-shrink: 0;
+  color: #00d5c0;
+}
+
+.work-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.work-tech {
+  max-width: 100%;
+  padding: 8px 11px;
+  border: 1px solid #30303a;
+  border-radius: 6px;
+  color: #c6c6d1;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.work-live-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+  padding: 15px 17px;
+  border: 1px solid rgba(0, 213, 192, 0.4);
+  border-radius: 9px;
+  color: #00d5c0;
+  text-decoration: none;
+  font-size: 13px;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.work-live-button:hover {
+  background: #00d5c0;
+  color: #09090d;
+}
+
+/* Bottom section */
+
+.work-outro {
+  max-width: 700px;
+  margin: 120px auto 0;
+  text-align: center;
+}
+
+.outro-spark {
+  color: #00d5c0;
+  font-size: 35px;
+}
+
+.outro-label {
+  margin-top: 20px;
+  color: #00d5c0;
+  font: 11px "DM Mono", monospace;
+  letter-spacing: 3px;
+}
+
+.work-outro h2 {
+  font-size: clamp(35px, 5vw, 58px);
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+}
+
+.work-outro h2 span {
+  color: #874dff;
+}
+
+.outro-description {
+  max-width: 550px;
+  margin: 20px auto 30px;
+  color: #a5a5b3;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.work-contact-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 22px;
+  border-radius: 8px;
+  background: #00d5c0;
+  color: #09090d;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: transform 0.3s ease;
+}
+
+.work-contact-button:hover {
+  transform: translateY(-4px);
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .work-page {
+    padding: 80px 5%;
+  }
+
+  .work-projects {
+    gap: 20px;
+  }
+
+  .work-card {
+    padding: 15px;
+  }
+
+  .work-preview {
+    height: 260px;
+  }
+
+  .work-stats {
+    gap: 20px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .work-page {
+    padding: 75px 16px 60px;
+  }
+
+  .work-header {
+    margin-bottom: 50px;
+  }
+
+  .work-eyebrow {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .work-header h1 {
+    font-size: 43px;
+    letter-spacing: -1.5px;
+  }
+
+  .work-intro {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .work-stats {
+    gap: 12px;
+    margin-top: 32px;
+  }
+
+  .stat-number {
+    font-size: 22px;
+  }
+
+  .stat-label {
+    max-width: 90px;
+    font-size: 8px;
+    line-height: 1.5;
+  }
+
+  .stat-divider {
+    height: 32px;
+  }
+
+  .work-projects {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 25px;
+    width: 100%;
+  }
+
+  .work-card {
+    width: 100%;
+    min-width: 0;
+    padding: 13px;
+    border-radius: 16px;
+  }
+
+  .work-card-top {
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .work-project-number {
+    flex-shrink: 0;
+    font-size: 11px;
+  }
+
+  .work-category {
+    font-size: 9px;
+    line-height: 1.6;
+  }
+
+  /* Full poster stays visible on mobile */
+
+  .work-preview {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    border-radius: 10px;
+  }
+
+  .work-poster-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  /* Make the live link indicator visible on touch screens */
+
+  .work-poster-overlay {
+    padding: 12px;
+    font-size: 9px;
+    opacity: 1;
+    background: linear-gradient(
+      to top,
+      rgba(9, 9, 13, 0.65),
+      transparent 38%
+    );
+  }
+
+  .work-arrow {
+    font-size: 19px;
+  }
+
+  .work-poster-number {
+    top: 8px;
+    left: 8px;
+    padding: 5px 7px;
+    font-size: 8px;
+  }
+
+  .work-card-content {
+    padding: 22px 2px 4px;
+  }
+
+  .work-card-content h2 {
+    font-size: 26px;
+  }
+
+  .work-card-content h3 {
+    font-size: 14px;
+  }
+
+  .work-description {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .work-feature-heading,
+  .work-tech-heading {
+    font-size: 10px;
+  }
+
+  .work-features li {
+    font-size: 12px;
+  }
+
+  .work-tech {
+    padding: 7px 9px;
+    font-size: 10px;
+  }
+
+  .work-live-button {
+    padding: 14px;
+    font-size: 12px;
+  }
+
+  .work-outro {
+    margin-top: 80px;
+  }
+
+  .work-outro h2 {
+    font-size: 36px;
+  }
+
+  .outro-description {
+    font-size: 13px;
+  }
+}
+
+/* Small mobile screens */
+
+@media (max-width: 360px) {
+  .work-page {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .work-header h1 {
+    font-size: 36px;
+  }
+
+  .work-stats {
+    gap: 8px;
+  }
+
+  .stat-number {
+    font-size: 19px;
+  }
+
+  .stat-label {
+    font-size: 7px;
+  }
+
+  .work-card {
+    padding: 10px;
+  }
+
+  .work-category {
+    font-size: 8px;
+  }
+
+  .work-card-content h2 {
+    font-size: 23px;
+  }
+}
+
+/* Respect reduced motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .work-card,
+  .work-card:hover {
+    animation: none;
+    transform: none;
+  }
+
+  .work-poster-image,
+  .work-live-button,
+  .work-contact-button {
+    transition: none;
+  }
+}
