@@ -10,6 +10,7 @@ import Contact from './Pages/Contact'
 import Details from './Pages/Details'
 import Form from './Components/Form'
 import Footer from './Components/Footer'
+import WhatsAppButton from './Components/WhatsAppButton'
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           element={
             <>
               <Hero />
+              <WhatsAppButton/>
               <Works />
               <Form />
             </>
