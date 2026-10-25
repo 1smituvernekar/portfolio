@@ -9,7 +9,7 @@ const projects = [
     title: "Learning Management System",
     subtitle: "Learn. Build. Grow.",
     description:
-      "A learning platform designed to make online education easier to explore, with organized courses, lessons, and payment-based learning workflows.",
+      "A learning platform concept designed to make online education easier to explore. It showcases a course-focused experience with learning content, course access, and payment-based learning workflows.",
     features: [
       "Course browsing interface",
       "Course and lesson organization",
@@ -20,32 +20,32 @@ const projects = [
     url: "https://learningmanagement-liard.vercel.app/",
     style: "project-orange",
     icon: "⌘",
-  },
+  },,
   {
     number: "02",
     category: "FULL STACK DEVELOPMENT",
     title: "E-Commerce Store",
     subtitle: "From product to purchase.",
     description:
-      "A shopping website built around the online shopping journey, connecting product browsing, cart management, order placement, and payments.",
+      "A shopping website built around the online shopping journey. Explore a product-focused interface and the functionality needed to connect product browsing, cart management, and order placement.",
     features: [
       "Product browsing experience",
       "Shopping cart functionality",
       "Order placement workflow",
-      "COD and Razorpay integration",
+      "COD and Razorpay payment integration",
     ],
     tech: ["React", "Node.js", "Express", "MongoDB", "Razorpay"],
     url: "https://ecommerce-mauve-rho-25.vercel.app/",
     style: "project-teal",
     icon: "↗",
   },
-  {
+   {
     number: "03",
     category: "CREATIVE DEVELOPMENT",
     title: "3D Website Experience",
     subtitle: "Beyond the ordinary web.",
     description:
-      "A visually engaging website experience designed to make browsing immersive through creative presentation, modern web design, and interactive visuals.",
+      "A visually engaging 3D website experience designed to make browsing feel more immersive. This project explores creative presentation, modern web design, and interactive visual experiences.",
     features: [
       "3D-inspired visual experience",
       "Modern and immersive design",
@@ -60,14 +60,6 @@ const projects = [
 ];
 
 const Work = () => {
-  const phoneNumber = "8970520956"; 
-
-  const whatsappMessage = encodeURIComponent(
-    "Hi! I visited your portfolio and I'm interested in getting a website developed."
-  );
-
-  const whatsappLink = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
-
   return (
     <main className="work-page">
       {/* Background effects */}
@@ -176,7 +168,7 @@ const Work = () => {
               </div>
 
               <span className="preview-orbit-label">
-                {project.number} — EXPLORE
+                0{index + 1} — EXPLORE
               </span>
             </div>
 
@@ -247,34 +239,11 @@ const Work = () => {
           into working applications.
         </p>
 
-        <a className="work-contact-button" href="/contact">
+        <a className="work-contact-button" href="/form">
           Let's Build Something
           <span>↗</span>
         </a>
       </section>
-
-      {/* Floating WhatsApp button */}
-      <a
-        className="work-whatsapp"
-        href={whatsappLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Contact me on WhatsApp"
-      >
-        <svg
-          viewBox="0 0 32 32"
-          className="work-whatsapp-icon"
-          aria-hidden="true"
-        >
-          <path
-            fill="currentColor"
-            d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.5h-.01a10.6 10.6 0 0 1-5.4-1.48l-.4-.24-3.92 1.03 1.05-3.82-.26-.42A10.5 10.5 0 1 1 16 26.5Zm5.8-7.85c-.32-.16-1.86-.92-2.15-1.02-.29-.11-.5-.16-.7.16-.21.32-.81 1.02-.99 1.23-.18.21-.36.24-.68.08-.32-.16-1.33-.49-2.52-1.55-.93-.82-1.56-1.84-1.74-2.16-.18-.32-.02-.49.13-.64.14-.14.32-.36.48-.54.16-.18.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.7-1.7-.97-2.33-.26-.61-.52-.52-.7-.53h-.6c-.21 0-.54.08-.83.4-.29.32-1.08 1.06-1.08 2.59s1.11 3.02 1.27 3.23c.16.21 2.19 3.35 5.32 4.7.74.32 1.32.51 1.78.65.75.24 1.43.2 1.97.12.6-.09 1.85-.76 2.11-1.49.26-.73.26-1.35.18-1.48-.08-.13-.29-.21-.6-.37Z"
-          />
-        </svg>
-
-        <span className="work-whatsapp-text">Let's Talk</span>
-        <span className="work-whatsapp-pulse"></span>
-      </a>
     </main>
   );
 };
